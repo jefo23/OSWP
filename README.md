@@ -22,7 +22,7 @@ sudo airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 ```
 |CMD|DESC|
 |-----|-----|
-|-w|prefix filename| 
+|-w|output filename| 
 |--bsssid|specific BSSID|
 |--essid|specific ESSID|
 |-c|channel|
