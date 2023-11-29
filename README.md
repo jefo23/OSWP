@@ -3,13 +3,16 @@
 ## Aircrack-ng 
 ### Packet sniffer, network detector, frame injection, cracks WEP and WPA-PSK 
 ```
-airmon-ng check
-airmon-ng check kill
+sudo airmon-ng check
+sudo airmon-ng check kill
 
 sudo /usr/sbin/airmon-ng
-airmon-ng start wlan0
-airmon-ng stop wlan0
+sudo airmon-ng start wlan0
+sudo airmon-ng start wlan0 [channel #]
+sudo airmon-ng stop wlan0
 iw wlan0 info
+iwconfig
+ifconfig
 
 ```
 
@@ -51,9 +54,16 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 wlan0mon
 ```
 aircrack-ng -w /usr/share/john/password.lst -e wifu -b 34:08:04:09:3D:38 wpa-01.cap
 ```
-
-
-##Useful Linux Commands
+### John the Ripper
+```
+$ john --format=netntlm timothy --wordlist=/usr/share/wordlists/rockyou.txt
+```
+### Hashcat
+```
+$ hashcat -m [hashtype] [hash] [dictionary]
+```
+## Useful Linux Commands
 ```
 scp kali@192.168.10.94:/home/kali/1.cap-01.cap .
+gzip -d file .gz
 ```
