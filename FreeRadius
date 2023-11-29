@@ -1,0 +1,11 @@
+## FreeRadius
+
+sudo apt install freeradius
+sudo -s
+cd /etc/freeradius/3.0/certs
+nano ca.cnf
+nano server.cnf
+rm dh [optional]
+make
+
+hostapd-mana
