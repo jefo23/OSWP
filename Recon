@@ -3,6 +3,8 @@ Port Scan
 NMap
 ``` 
 sudo nmap -sT -p- 10.10.8.8
+-A = everything
+-sS = SYN scan
 -sT = scan TCP
 -sU = scan UDP
 -p- = all ports
