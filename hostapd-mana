@@ -1,0 +1,10 @@
+sudo apt install hostapd-mana
+  sudo apt upgrade 
+
+Simple hostapd-mana.conf
+  interface=wlan0mon
+  ssid=Mostar
+  channel=1
+
+Complex hostapd-mana.conf
+  BLAH BLAH 
