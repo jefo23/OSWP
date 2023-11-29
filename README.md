@@ -10,6 +10,7 @@ sudo /usr/sbin/airmon-ng
 sudo airmon-ng start wlan0
 sudo airmon-ng start wlan0 [channel #]
 sudo airmon-ng stop wlan0
+
 iw wlan0 info
 iwconfig
 ifconfig
@@ -35,9 +36,9 @@ sudo airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 
 ## Aireplay-ng
 ### Generate wireless traffic, deauths, WEP
-#### Set card to channel [3]
+#### Set card to channel [#]
 ```
-sudo airmon-ng start wlan0 3 
+sudo airmon-ng start wlan0 # 
 ```
 ### Deauth
 ```
@@ -46,6 +47,7 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 wlan0mon
 |CMD|DESC|
 |-----|-----|
 -0 |# deauths
+0 | continuous
 -a|BSSID
 -c|client MAC
 
@@ -56,11 +58,11 @@ aircrack-ng -w /usr/share/john/password.lst -e wifu -b 34:08:04:09:3D:38 wpa-01.
 ```
 ### John the Ripper
 ```
-$ john --format=netntlm timothy --wordlist=/usr/share/wordlists/rockyou.txt
+john --format=netntlm timothy --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
 ```
-$ hashcat -m [hashtype] [hash] [dictionary]
+hashcat -m [hashtype] [hash] [dictionary]
 ```
 ## Useful Linux Commands
 ```
