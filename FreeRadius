@@ -4,8 +4,23 @@ sudo apt install freeradius
 sudo -s
 cd /etc/freeradius/3.0/certs
 nano ca.cnf
+  [certificate_authority]
 nano server.cnf
+  [server]
 rm dh [optional]
 make
 
 hostapd-mana
+network={ 
+      ssid="TEST-EAP" 
+      priority=1 
+      proto=RSN 
+      key_mgmt=WPA-EAP 
+      pairwise=CCMP 
+      auth_alg=OPEN 
+      eap=PEAP 
+      identity="user1" 
+      password="ThisPa$$wordIsExtraSecureBecauseItIsSuperLONG!@#" 
+      phase1="peaplabel=0" 
+      phase2="auth=MSCHAPV2" 
+}
