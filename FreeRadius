@@ -1,4 +1,4 @@
-## FreeRadius
+## FreeRadius ##
 
 sudo apt install freeradius
 sudo -s
