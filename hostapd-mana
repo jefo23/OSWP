@@ -86,5 +86,8 @@ mana_eaptls=1
 *     PEAP,TTLS,TLS,FAST
 "t"   TTLS-PAP,TTLS-CHAP,TTLS-MSCHAP,MSCHAPV2,MD5,GTC,TTLS,TTLS-MSCHAPV2    "pass"   [2]
 
+t = username
+pass = password
+
 *** Run Hostapd ***
 $sudo hostapd-mana /etc/hostapd-mana/mana.conf
