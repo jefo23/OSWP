@@ -72,12 +72,16 @@ gzip -d file .gz
 ## Attacking WPA Enterprise
 ```
 sudo airodump-ng wlan0mon
-WPA2 CCMP MGT = WPA Enterprise
-```
-### Capture handshake > Wireshark > tls.handshake.type==11 
-### Server certificate frame > EAP > TLS > Certificate
-### Create certs with FreeRadius
-### Hostapd-mana > mana.conf > mana.eap_user
-```
+sudo apt install freeradius
+nano ca.cnf, nano server.cnf
+make
+sudo apt install hostapd-mana
+mana.conf
+mana.eap_user
 sudo hostapd-mana /etc/hostapd-mana/mana.conf
+```
+## Certs
+```
+openssl x509 -in CERT_FILENAME -noout -enddate
+openssl x509 -inform der -in CERTIFICATE_FILENAME -text
 ```
