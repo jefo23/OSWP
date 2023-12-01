@@ -204,3 +204,18 @@ mod_rewrite and mod_alias rules
   SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
   SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 </VirtualHost>
+
+mco-hostapd.conf
+interface=wlan0
+ssid=MegaCorp One Lab
+channel=11
+
+# 802.11n
+hw_mode=g
+ieee80211n=1
+
+# Uncomment the following lines to use OWE instead of an open network
+#wpa=2
+#ieee80211w=2
+#wpa_key_mgmt=OWE
+#rsn_pairwise=CCMP
