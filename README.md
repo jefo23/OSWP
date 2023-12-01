@@ -111,3 +111,9 @@ sudo nft add rule ip nat PREROUTING iifname "wlan0" udp dport 53 counter redirec
 /etc/apache2/sites-enabled/000-default.conf
 sudo a2enmod rewrite
 sudo a2enmod alias
+
+sudo a2enmod ssl
+sudo systemctl restart apache2
+
+nano mco-hostapd.conf
+sudo hostapd -B mco-hostapd.conf
