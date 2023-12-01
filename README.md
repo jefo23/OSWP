@@ -108,10 +108,12 @@ sudo nft add table ip nat
 sudo nft 'add chain nat PREROUTING { type nat hook prerouting priority dstnat; policy accept; }'
 sudo nft add rule ip nat PREROUTING iifname "wlan0" udp dport 53 counter redirect to :53
 
-/etc/apache2/sites-enabled/000-default.conf
+/etc/apache2/sites-enabled/000-default.conf > mod_rewrite/mod_alias
 sudo a2enmod rewrite
 sudo a2enmod alias
+systemctl restart apache2
 
+/etc/apache2/sites-enabled/000-default.conf > SSL
 sudo a2enmod ssl
 sudo systemctl restart apache2
 
