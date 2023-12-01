@@ -1,4 +1,6 @@
-Captive Portal Example
+**** Captive Portal Example *****
+
+** /var/www/html/portal/index.php **
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +48,7 @@ Captive Portal Example
 	</body>
 </html>
 
-dnsmasq.conf
+** dnsmasq.conf **
 # Main options
 # http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html
 domain-needed
@@ -74,7 +76,7 @@ address=/net/192.168.87.1
 # Entries for Windows 7 and 10 captive portal detection
 address=/dns.msftncsi.com/131.107.255.255
 
-login_check.php
+** login_check.php **
 <?php
 # Path of the handshake PCAP
 $handshake_path = '/home/kali/discovery-01.cap';
@@ -150,7 +152,7 @@ if ($key_found) {
 ?>
 
 
-/etc/apache2/sites-enabled/000-default.conf
+** /etc/apache2/sites-enabled/000-default.conf **
 mod_rewrite and mod_alias rules 
 ...
 
@@ -174,7 +176,7 @@ mod_rewrite and mod_alias rules
 </VirtualHost>
 
 
-/etc/apache2/sites-enabled/000-default.conf
+** /etc/apache2/sites-enabled/000-default.conf ** 
 <VirtualHost *:443>
 
   ServerAdmin webmaster@localhost
@@ -205,7 +207,7 @@ mod_rewrite and mod_alias rules
   SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 </VirtualHost>
 
-mco-hostapd.conf
+** mco-hostapd.conf **
 interface=wlan0
 ssid=MegaCorp One Lab
 channel=11
