@@ -1,0 +1,23 @@
+/etc/apache2/sites-enabled/000-default.conf
+mod_rewrite & mod_alias
+
+...
+
+  # Apple
+  RewriteEngine on
+  RewriteCond %{HTTP_USER_AGENT} ^CaptiveNetworkSupport(.*)$ [NC]
+  RewriteCond %{HTTP_HOST} !^192.168.87.1$
+  RewriteRule ^(.*)$ http://192.168.87.1/portal/index.php [L,R=302]
+
+  # Android
+  RedirectMatch 302 /generate_204 http://192.168.87.1/portal/index.php
+
+  # Windows 7 and 10
+  RedirectMatch 302 /ncsi.txt http://192.168.87.1/portal/index.php
+  RedirectMatch 302 /connecttest.txt http://192.168.87.1/portal/index.php
+
+  # Catch-all rule to redirect other possible attempts
+  RewriteCond %{REQUEST_URI} !^/portal/ [NC]
+  RewriteRule ^(.*)$ http://192.168.87.1/portal/index.php [L]
+
+</VirtualHost>
