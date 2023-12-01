@@ -94,3 +94,18 @@ wget -r -l2 https://www.megacorpone.com
 sudo cp -r ./www.megacorpone.com/assets/ /var/www/html/portal/
 sudo cp -r ./www.megacorpone.com/old-site/ /var/www/html/portal/
 /var/www/html/portal/login_check.php
+
+sudo ip addr add 192.168.87.1/24 dev wlan0
+sudo ip link set wlan0 up
+sudo apt install dnsmasq
+mco-dnsmasq.conf
+sudo dnsmasq --conf-file=mco-dnsmasq.conf
+sudo tail /var/log/syslog | grep dnsmasq
+sudo netstat -lnp
+
+sudo apt install nftables
+sudo nft add table ip nat
+sudo nft 'add chain nat PREROUTING { type nat hook prerouting priority dstnat; policy accept; }'
+sudo nft add rule ip nat PREROUTING iifname "wlan0" udp dport 53 counter redirect to :53
+
+/etc/apache2/sites-enabled/000-default.conf
