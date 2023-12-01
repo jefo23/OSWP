@@ -43,7 +43,8 @@ Captive Portal Example
 				</div>
 			</div>
 		</div>
-
+	</body>
+</html>
 
 dnsmasq.conf
 # Main options
@@ -64,6 +65,11 @@ listen-address=192.168.87.1
 # DHCP range
 dhcp-range=192.168.87.100,192.168.87.199,12h
 dhcp-lease-max=100
+# This should cover most queries
+# We can add 'log-queries' to log DNS queries
+address=/com/192.168.87.1
+address=/org/192.168.87.1
+address=/net/192.168.87.1
 
-	</body>
-</html>
+# Entries for Windows 7 and 10 captive portal detection
+address=/dns.msftncsi.com/131.107.255.255
