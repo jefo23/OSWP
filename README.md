@@ -117,3 +117,6 @@ sudo systemctl restart apache2
 
 nano mco-hostapd.conf
 sudo hostapd -B mco-hostapd.conf
+sudo tail -f /var/log/syslog | grep -E '(dnsmasq|hostapd)'
+sudo tail -f /var/log/apache2/access.log
+sudo cat /tmp/systemd-private-0a505bfcaf7d4db699274121e3ce3849-apache2.service-lIP3ds/tmp/passphrase.txt
