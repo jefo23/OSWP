@@ -69,6 +69,21 @@ hashcat -m [hashtype] [hash] [dictionary]
 scp kali@192.168.10.94:/home/kali/1.cap-01.cap .
 gzip -d file .gz
 ```
+## NMAP
+```
+sudo nmap -sT -p- 10.10.8.8
+-A = everything
+-sS = SYN scan
+-sT = scan TCP
+-sU = scan UDP
+-p- = all ports
+```
+## NetCat
+```
+sudo nc -z -v 10.10.8.8
+-z = open ports
+-v = verbose
+```
 ## Attacking WPA Enterprise
 ```
 sudo airodump-ng wlan0mon
