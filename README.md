@@ -85,3 +85,12 @@ sudo hostapd-mana /etc/hostapd-mana/mana.conf
 openssl x509 -in CERT_FILENAME -noout -enddate
 openssl x509 -inform der -in CERTIFICATE_FILENAME -text
 ```
+
+## Captive Portal
+```
+sudo apt install apache2 libapache2-mod-php
+wget -r -l2 https://www.megacorpone.com
+/var/www/html/portal/index.php
+sudo cp -r ./www.megacorpone.com/assets/ /var/www/html/portal/
+sudo cp -r ./www.megacorpone.com/old-site/ /var/www/html/portal/
+/var/www/html/portal/login_check.php
