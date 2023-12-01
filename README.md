@@ -22,7 +22,7 @@ ifconfig
 #### Don't forget to specify interface
 ```
 sudo airodump-ng wlan0mon -c 2
-sudo airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
+sudo airodump-ng -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap wlan0mon
 ```
 |CMD|DESC|
 |-----|-----|
