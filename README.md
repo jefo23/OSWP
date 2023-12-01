@@ -84,6 +84,7 @@ sudo hostapd-mana /etc/hostapd-mana/mana.conf
 ```
 openssl x509 -in CERT_FILENAME -noout -enddate
 openssl x509 -inform der -in CERTIFICATE_FILENAME -text
+make-ssl-cert generate-default-snakeoil --force-overwrite
 ```
 
 ## Captive Portal
