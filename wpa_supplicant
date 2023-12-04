@@ -1,0 +1,18 @@
+**** wpa_supplicant ****
+
+** Simple config for an open network **
+network={
+  ssid="hotel_wifi"
+  scan_ssid=1
+}
+
+** Simple config for a WPA or WPA-PSK network **
+network={
+  ssid="home_network"
+  scan_ssid=1
+  psk="correct battery horse staple"
+  key_mgmt=WPA-PSK
+}
+
+$sudo wpa_supplicant -i wlan0 -c wifi-client.conf
+$sudo dhclient wlan0
