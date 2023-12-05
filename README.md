@@ -145,3 +145,21 @@ sudo hostapd -B mco-hostapd.conf
 sudo tail -f /var/log/syslog | grep -E '(dnsmasq|hostapd)'
 sudo tail -f /var/log/apache2/access.log
 sudo cat /tmp/systemd-private-0a505bfcaf7d4db699274121e3ce3849-apache2.service-lIP3ds/tmp/passphrase.txt
+```
+## Manual Network Connections
+```
+wpa_supplicant.conf
+sudo wpa_supplicant -i wlan0 -c wifi-client.conf
+sudo dhclient wlan0
+sudo iw list
+sudo ip link set wlan0 up
+sudo ip addr add 10.0.0.1/24 dev wlan0
+dnsmasq.conf
+sudo dnsmasq --conf-file=dnsmasq.conf
+sudo tail /var/log/syslog | grep dnsmasq
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+sudo apt install nftables
+sudo nft add table nat
+sudo nft 'add chain nat postrouting { type nat hook postrouting priority 100 ; }'
+sudo nft add rule ip nat postrouting oifname "eth0" ip daddr != 10.0.0.1/24 masquerade
+sudo hostapd hostapd.conf
