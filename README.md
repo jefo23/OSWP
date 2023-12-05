@@ -20,7 +20,7 @@ ifconfig
 ### WEP, WPA/WPA2
 #### Don't forget to specify interface
 ```
-sudo airodump-ng [interface] --channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
+sudo airodump-ng [interface] -channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
 sudo airodump-ng wlan0mon -c 2
 sudo airodump-ng wlan0mon -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 ```
@@ -29,7 +29,7 @@ sudo airodump-ng wlan0mon -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 |-w|output filename| 
 |--bsssid|specific BSSID|
 |--essid|specific client ESSID|
-|--c|channel|
+|-c|channel|
 |-g|GPS|
 |--ivs| Interval Vectors
 |-R|Regular Expression|
