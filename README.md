@@ -75,7 +75,7 @@ sudo nano /etc/john/john.conf
 john --wordlist=/usr/share/john/password.lst --rules --stdout | grep -i Password123
 john --wordlist=/usr/share/john/password.lst --rules --stdout | aircrack-ng -e wifu -w - ~/wpa-01.cap
 
-john --format=netntlm timothy --wordlist=/usr/share/wordlists/rockyou.txt
+john --format=netntlm [timothy.txt] --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
 ```
