@@ -108,6 +108,7 @@ sudo nc -z -v 10.10.8.8
 ```
 sudo airodump-ng wlan0mon
 sudo apt install freeradius
+/etc/freeradius/3.0
 nano ca.cnf, nano server.cnf
 make
 sudo apt install hostapd-mana
