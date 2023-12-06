@@ -110,6 +110,7 @@ sudo airodump-ng wlan0mon
 sudo apt install freeradius
 /etc/freeradius/3.0
 nano ca.cnf, nano server.cnf
+rm dh
 make
 sudo apt install hostapd-mana
 mana.conf
