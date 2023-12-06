@@ -89,8 +89,10 @@ mana_eaptls=1
 t = username
 pass = password
 
-** Hashes **
-grep JTR | cut -f2 >> [output.txt]
 
 *** Run Hostapd ***
 $sudo hostapd-mana /etc/hostapd-mana/mana.conf
+
+
+** Hashes **
+grep JTR | cut -f2 >> [output.txt]
