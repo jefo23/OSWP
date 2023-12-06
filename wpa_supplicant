@@ -16,3 +16,18 @@ network={
 
 $sudo wpa_supplicant -i wlan0 -c wifi-client.conf
 $sudo dhclient wlan0
+
+*** EAP ***
+network={ 
+      ssid="<ssid>" 
+      priority=1 
+      proto=RSN 
+      key_mgmt=WPA-EAP 
+      pairwise=CCMP 
+      auth_alg=OPEN 
+      eap=PEAP 
+      identity="<user>" 
+      password="<pass>" 
+      phase1="peaplabel=0" 
+      phase2="auth=MSCHAPV2" 
+}
