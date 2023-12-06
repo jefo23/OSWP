@@ -15,6 +15,7 @@ network={
 }
 
 $sudo wpa_supplicant -i wlan0 -c wifi-client.conf
+$sudo wpa_supplicant -i wlan0 -c wifi-client.conf -B
 $sudo dhclient wlan0
 
 *** EAP ***
