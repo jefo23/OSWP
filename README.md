@@ -154,6 +154,8 @@ sudo nc -z -v 10.10.8.8
 ## Attacking WPA Enterprise
 ```
 sudo airodump-ng wlan0mon
+tls.handshake.type==11 or tls.handshake.certificate
+
 sudo apt install freeradius
 /etc/freeradius/3.0
 nano ca.cnf, nano server.cnf
