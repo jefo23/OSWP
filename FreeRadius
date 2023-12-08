@@ -7,5 +7,8 @@ nano ca.cnf
   [certificate_authority]
 nano server.cnf
   [server]
-rm dh [may have to remove before make]
+rm dh [remove before make]
 make
+
+** If you need to remake certs **
+sudo make destroycerts
