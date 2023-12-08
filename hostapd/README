@@ -1,6 +1,6 @@
 *** HOSTAPD-MANA ***
 sudo apt install hostapd-mana
-  sudo apt upgrade 
+sudo apt upgrade 
 
 Simple hostapd-mana.conf
   interface=wlan0mon
