@@ -18,7 +18,7 @@ ifconfig
 #### Don't forget to specify interface
 ```
 sudo airodump-ng [interface] --channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
-sudo airodump-ng wlan0mon --c 2
+sudo airodump-ng wlan0mon -c 2
 ```
 |CMD|DESC|
 |-----|-----|
