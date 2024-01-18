@@ -126,6 +126,7 @@ grep JTR | cut -f2 >> [output.txt]
 john --format=netntlm [timothy.txt] --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
+Hash types: https://hashcat.net/wiki/doku.php?id=example_hashes
 ```
 /usr/lib/hashcat-utils/cap2hccapx.bin wifu-01.cap output.hccapx
 hashcat -m [hashtype] [hash] [dictionary]
