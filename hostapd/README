@@ -2,7 +2,7 @@
 sudo apt install hostapd-mana
 sudo apt upgrade 
 
-Simple hostapd-mana.conf
+Simple hostapd-mana.conf - WPA-PSK
   interface=wlan0mon
   ssid=Mostar
   channel=1
