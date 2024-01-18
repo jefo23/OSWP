@@ -122,8 +122,8 @@ sudo nano /etc/john/john.conf
 john --wordlist=/usr/share/john/password.lst --rules --stdout | grep -i Password123
 john --wordlist=/usr/share/john/password.lst --rules --stdout | aircrack-ng -e wifu -w - ~/wpa-01.cap
 
-grep JTR | cut -f2 >> [output.txt]
-john --format=netntlm [timothy.txt] --wordlist=/usr/share/wordlists/rockyou.txt
+grep JTR | cut -f2 >> output.txt
+john --format=netntlm output.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ### Hashcat
 Hash types: https://hashcat.net/wiki/doku.php?id=example_hashes
