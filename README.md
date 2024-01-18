@@ -42,7 +42,7 @@ aircrack-ng -w /usr/local/share/dict/wordlist-probable.txt -e [essid] -b [bssid]
 ```
 sudo airmon-ng start wlan0 # 
 ```
-### Deauth
+### Aireplay Attacks
 ```
 sudo aireplay-ng [attack type] [# of deauths] -a [BSSID] -c [clientBSSID] [interface]
 sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
@@ -53,6 +53,7 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 0 | continuous
 -a|BSSID
 -c|client MAC
+-3|ARP Replay
 
 ## WPA/WPA2-PSK
 ```
