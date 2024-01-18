@@ -229,6 +229,10 @@ sudo nft 'add chain nat postrouting { type nat hook postrouting priority 100 ; }
 sudo nft add rule ip nat postrouting oifname "eth0" ip daddr != 10.0.0.1/24 masquerade
 sudo hostapd hostapd.conf
 ```
+```
+sudo nmcli dev wifi connect [SSID] password [password]
+wpa_supplicant -c <(wpa_passphrase [SSID] [password]) -i [interface]
+```
 ## Proof.txt
 ```
 curl http://192.168.1.1/proof.txt
