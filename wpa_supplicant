@@ -32,3 +32,11 @@ network={
       phase1="peaplabel=0" 
       phase2="auth=MSCHAPV2" 
 }
+
+*** WEP ***
+network={
+        ssid="groupB_target_7"
+        key_mgmt=NONE
+        wep_key0="puppy"
+        wep_tx_keyidx=0
+}
