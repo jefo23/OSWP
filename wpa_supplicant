@@ -40,3 +40,12 @@ network={
         wep_key0="puppy"
         wep_tx_keyidx=0
 }
+
+└─$ cat wep_supplicant
+network={
+        ssid="groupB_target_7"
+        key_mgmt=NONE
+        wep_key0=7075707079
+        wep_tx_keyidx=0
+}
+
