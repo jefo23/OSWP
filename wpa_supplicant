@@ -27,7 +27,7 @@ network={
       pairwise=CCMP 
       auth_alg=OPEN 
       eap=PEAP 
-      identity="<user>" 
+      identity="DOMAIN\<user>" 
       password="<pass>" 
       phase1="peaplabel=0" 
       phase2="auth=MSCHAPV2" 
