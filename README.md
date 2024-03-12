@@ -159,6 +159,7 @@ sudo nc -z -v 10.10.8.8
 ```
 sudo airodump-ng wlan0mon
 tls.handshake.type==11 or tls.handshake.certificate
+Auth = MGT = WPA Enterprise
 
 sudo apt install freeradius
 /etc/freeradius/3.0
