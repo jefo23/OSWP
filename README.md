@@ -136,6 +136,7 @@ hashcat -m 2500 output.hccapx /usr/share/john/password.lst
 ## Useful Linux Commands
 ```
 scp kali@192.168.10.94:/home/kali/1.cap-01.cap .
+Unzip
 gzip -d file .gz
 find / -iname hashcat.potfile
 sudo service NetworkManager restart
