@@ -46,8 +46,9 @@ sudo aireplay-ng -0 10 -a 34:08:04:09:3D:38 -c 35:08:04:09:3D:40 wlan0mon
 |-----|-----|
 -0|# deauths
 -1|Fake Authentication
--2|Interactive Packet REplay
+-2|Interactive Packet Replay
 -3|ARP Replay
+-9|Injection Test
 -a|BSSID AP MAC
 -c|Destination MAC
 -h|Source MAC
